@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"get_value	(Value.h)"
+			],
+			[
 				"copyto",
 				"copy_to_vector"
 			],
@@ -22,10 +26,6 @@
 			[
 				"copy_to",
 				"copy_to_vector"
-			],
-			[
-				"get",
-				"get_array"
 			],
 			[
 				"toke",
@@ -519,38 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "include/PseudoJson/Value.h",
-			"settings":
-			{
-				"buffer_size": 1364,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/PseudoJson/Value.cpp",
-			"settings":
-			{
-				"buffer_size": 4175,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "include/PseudoJson/Array.h",
-			"settings":
-			{
-				"buffer_size": 611,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/PseudoJson/Array.cpp",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -694,8 +662,21 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson"
+	],
 	"file_history":
 	[
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/src/PseudoJson/Decoder.cpp",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/include/PseudoJson/Decoder.h",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/src/PseudoJson/Object.cpp",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/include/PseudoJson/Object.h",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/src/PseudoJson/Array.cpp",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/include/PseudoJson/Array.h",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/src/PseudoJson/Value.cpp",
+		"/Users/kouji/Public/win/PseudoJson/PseudoJson/include/PseudoJson/Value.h",
+		"/Users/kouji/Public/win/c15/c15/src/main.cpp",
 		"/Users/kouji/so.cpp",
 		"/Users/kouji/sam.cpp",
 		"/Users/kouji/Public/win/c14/c14/src/Camera.h",
@@ -814,20 +795,11 @@
 		"/Users/kouji/Public/win/c5/c5/State.cpp",
 		"/Users/kouji/Public/win/c5/c5/Scene.h",
 		"/Users/kouji/Public/win/c5/c5/Scene.cpp",
-		"/Users/kouji/Public/win/c5/c5/Title.h",
-		"/Users/kouji/Public/win/c5/c5/Title.cpp",
-		"/Users/kouji/Public/win/c5/c5/File.cpp",
-		"/Users/kouji/Public/win/c5/c5/File.h",
-		"/Users/kouji/Public/win/c5/c5/StageSelect.h",
-		"/Users/kouji/Public/win/c5/c5/Dds.h",
-		"/Users/kouji/Public/win/c5/c5/Dds.cpp",
-		"/Users/kouji/Public/win/c5/c5/data/image/menu.dds",
-		"/Users/kouji/Public/win/c5/c5/Image.h",
-		"/Users/kouji/Public/win/c5/c5/title.dds"
+		"/Users/kouji/Public/win/c5/c5/Title.h"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -842,6 +814,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"istringstream",
+			"string",
+			"pair",
 			"endl",
 			"v.push_back",
 			"copy_to_vector",
@@ -966,10 +941,7 @@
 			"vertex",
 			"set_uv_vertexes",
 			"unsigned",
-			"fixed_depth",
-			"MaxDepth",
-			"depth",
-			"int"
+			"fixed_depth"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -992,123 +964,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "include/PseudoJson/Value.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1364,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/PseudoJson/Value.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4175,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								30,
-								123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "include/PseudoJson/Array.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 611,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								98,
-								98
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/PseudoJson/Array.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
