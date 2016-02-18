@@ -4,6 +4,7 @@
 #include <stack>
 #include <string>
 #include "PseudoJson/Array.h"
+#include "PseudoJson/Data.h"
 #include "PseudoJson/Object.h"
 #include "PseudoJson/Value.h"
 
@@ -39,7 +40,17 @@ Decoder::Decoder()
 {}
 
 Decoder::~Decoder()
-{}
+{
+    if (value_)
+    {
+        delete value_;
+    }
+}
+
+Data Decoder::data() const
+{
+    return Data(value_);
+}
 
 void Decoder::decode(const char* filename)
 {
@@ -56,8 +67,6 @@ void Decoder::decode()
 
     decode_per_char();
 }
-
-const Value* Decoder::value() const { return value_; }
 
 void Decoder::decode_per_char()
 {

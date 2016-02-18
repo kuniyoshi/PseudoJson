@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stack>
 #include <string>
+#include "PseudoJson/Data.h"
 
 namespace PseudoJson
 {
@@ -37,9 +38,9 @@ public:
     Decoder(const char* filename);
     Decoder();
     ~Decoder();
+    Data data() const;
     void decode(const char* filename);
     void decode();
-    const Value* value() const;
 
 private:
     void decode_per_char();

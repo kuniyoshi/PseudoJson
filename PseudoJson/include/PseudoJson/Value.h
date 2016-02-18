@@ -53,6 +53,8 @@ public:
                             const std::string& at) const;
     void copy_to_vector_at( std::vector< std::string >* v,
                             const std::string& at) const;
+    size_t size_of(const std::string& at) const;
+    std::vector< std::string > keys_of(const std::string& at) const;
 };
 
 } // PseudoJson

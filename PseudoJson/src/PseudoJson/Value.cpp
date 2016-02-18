@@ -64,7 +64,7 @@ Value::~Value()
         if (a_ != 0)
         {
             delete a_;
-        }  
+        }
 
         return;
     }
@@ -134,7 +134,7 @@ void copy_tokens(std::vector< std::string >* v, std::string s)
     {
         to = s.find_first_of(d, from);
 
-        if (!(to >= 0))
+        if (to >= s.size())
         {
             to = s.size();
         }
@@ -210,6 +210,20 @@ void Value::copy_to_vector_at(  std::vector< std::string >* v,
     std::vector< std::string > tokens;
     copy_tokens(&tokens, at);
     drill_down(this, tokens)->get_array()->copy_to_vector(v);
+}
+
+size_t Value::size_of(const std::string& at) const
+{
+    std::vector< std::string > tokens;
+    copy_tokens(&tokens, at);
+    return drill_down(this, tokens)->get_array()->size_of();
+}
+
+std::vector< std::string > Value::keys_of(const std::string& at) const
+{
+    std::vector< std::string > tokens;
+    copy_tokens(&tokens, at);
+    return drill_down(this, tokens)->get_object()->keys();
 }
 
 }

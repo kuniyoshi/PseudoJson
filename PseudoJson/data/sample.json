@@ -1,0 +1,12 @@
+{
+    asdf: "fdsa",
+    someobject: {
+        has: "key",
+        and: "morekeys"
+    },
+    fdsa: [
+        "fdas",
+        "asdf",
+        "102."
+    ]
+}

@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include <vector>
 #include "PseudoJson/Value.h"
 
 namespace PseudoJson
@@ -51,5 +52,19 @@ void Object::insert(std::string key, Value* value)
 }
 
 const Value* Object::at(std::string key) const { return map_.at(key); }
+
+std::vector< std::string > Object::keys() const
+{
+    std::vector< std::string > keys;
+
+    std::map< std::string, Value* >::const_iterator it = map_.begin();
+
+    for (; it != map_.end(); ++it)
+    {
+        keys.push_back(it->first);
+    }
+
+    return keys;
+}
 
 }

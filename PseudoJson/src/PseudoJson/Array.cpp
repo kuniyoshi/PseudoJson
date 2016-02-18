@@ -87,4 +87,6 @@ void Array::copy_to_vector(std::vector< double >* v) const
     }
 }
 
+size_t Array::size_of() const { return array_.size(); }
+
 }

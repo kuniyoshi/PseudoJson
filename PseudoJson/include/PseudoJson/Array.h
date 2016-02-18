@@ -24,6 +24,7 @@ public:
     void copy_to_vector(std::vector< std::string >* v) const;
     void copy_to_vector(std::vector< int >* v) const;
     void copy_to_vector(std::vector< double >* v) const;
+    size_t size_of() const;
 };
 
 } // PseudoJson
