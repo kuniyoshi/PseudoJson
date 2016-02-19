@@ -14,4 +14,3 @@ $(SRCDIR)/Value.o: $(SRCDIR)/Value.cpp
 $(SRCDIR)/Object.o: $(SRCDIR)/Object.cpp
 $(SRCDIR)/Array.o: $(SRCDIR)/Array.cpp
 $(SRCDIR)/Data.o: $(SRCDIR)/Data.cpp
-

@@ -1,12 +1,12 @@
 {
     asdf: "fdsa",
     someobject: {
-        has: "key",
-        and: "morekeys"
+        has: "key", // in ob key
+        and: "morekeys" // last ob key
     },
     fdsa: [
         "fdas",
-        "asdf",
-        +102.3
+        "asdf", // fdsa
+        +102.3 // asdffdsa
     ]
 }
