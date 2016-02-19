@@ -170,15 +170,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PseudoJson\Array.cpp" />
+    <ClCompile Include="src\PseudoJson\Data.cpp" />
     <ClCompile Include="src\PseudoJson\Decoder.cpp" />
     <ClCompile Include="src\PseudoJson\Object.cpp" />
     <ClCompile Include="src\PseudoJson\Value.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\PseudoJson\Array.h" />
+    <ClInclude Include="include\PseudoJson\Data.h" />
     <ClInclude Include="include\PseudoJson\Decoder.h" />
     <ClInclude Include="include\PseudoJson\Object.h" />
     <ClInclude Include="include\PseudoJson\Value.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\sample.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
