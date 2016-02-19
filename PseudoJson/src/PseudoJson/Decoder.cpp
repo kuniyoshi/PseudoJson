@@ -96,7 +96,7 @@ void Decoder::decode_per_char()
             break;
 
             case '0': case '1': case '2': case '3': case '4': case '5':
-            case '6': case '7': case '8': case '9': case '-':
+            case '6': case '7': case '8': case '9': case '-': case '+':
             ifs_.unget();
             states_.pop();
             states_.push(StateNumber);
@@ -174,7 +174,7 @@ void Decoder::decode_per_char()
         switch (c)
         {
             case '0': case '1': case '2': case '3': case '4': case '5':
-            case '6': case '7': case '8': case '9': case '-':
+            case '6': case '7': case '8': case '9': case '-': case '+':
             ifs_.unget();
             token_ = "";
             states_.pop();
@@ -190,7 +190,8 @@ void Decoder::decode_per_char()
         switch (c)
         {
             case '0': case '1': case '2': case '3': case '4': case '5':
-            case '6': case '7': case '8': case '9': case '-': case '.':
+            case '6': case '7': case '8': case '9': case '-': case '+':
+            case '.':
             token_ += c;
             break;
 
