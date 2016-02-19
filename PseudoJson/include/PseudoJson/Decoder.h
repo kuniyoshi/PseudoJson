@@ -23,6 +23,7 @@ private:
         StateObject,
         StateObjectKey,
         StateArray,
+        StateCommentOut,
     };
 
 public:

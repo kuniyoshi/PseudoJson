@@ -74,6 +74,7 @@ void Decoder::decode_per_char()
 {
     Value* v = 0;
     char c = ifs_.get();
+    char next_char = '\0';
 
     if (ifs_.eof() || states_.empty())
     {
@@ -122,6 +123,20 @@ void Decoder::decode_per_char()
             case '}':
             ifs_.unget();
             states_.pop();
+            break;
+
+            case '/':
+            ifs_ >> next_char;
+
+            if (next_char == '/')
+            {
+                states_.push(StateCommentOut);
+            }
+            else
+            {
+                ifs_.unget();
+            }
+
             break;
 
             default:
@@ -253,6 +268,20 @@ void Decoder::decode_per_char()
             states_.push(StateUnknown);
             break;
 
+            case '/':
+            ifs_ >> next_char;
+
+            if (next_char == '/')
+            {
+                states_.push(StateCommentOut);
+            }
+            else
+            {
+                ifs_.unget();
+            }
+
+            break;
+
             default:
             break;
         }
@@ -301,6 +330,20 @@ void Decoder::decode_per_char()
             states_.push(StateObjectKey);
             break;
 
+            case '/':
+            ifs_ >> next_char;
+
+            if (next_char == '/')
+            {
+                states_.push(StateCommentOut);
+            }
+            else
+            {
+                ifs_.unget();
+            }
+
+            break;
+
             default:
             break;
         }
@@ -319,8 +362,34 @@ void Decoder::decode_per_char()
             states_.push(StateUnknown);
             break;
 
+            case '/':
+            ifs_ >> next_char;
+
+            if (next_char == '/')
+            {
+                states_.push(StateCommentOut);
+            }
+            else
+            {
+                ifs_.unget();
+            }
+
+            break;
+
             default:
             token_ += c;
+            break;
+        }
+        break;
+
+        case StateCommentOut:
+        switch (c)
+        {
+            case '\n':
+            states_.pop();
+            break;
+
+            default:
             break;
         }
         break;
