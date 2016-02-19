@@ -67,23 +67,21 @@ void Decoder::decode()
         states_.push(StateUnknown);
     }
 
-    decode_per_char();
+    while (!ifs_.eof() && !states_.empty())
+    {
+        decode_per_char();
+    }
+
+    assert(paths_.empty());
+    ifs_.close();
 }
 
 void Decoder::decode_per_char()
 {
     Value* v = 0;
     char c = ifs_.get();
-    char next_char = '\0';
-
-    if (ifs_.eof() || states_.empty())
-    {
-        assert(paths_.empty());
-        ifs_.close();
-        return;
-    }
-
     assert(!ifs_.fail());
+    char next_char = '\0';
 
     switch (states_.top())
     {
@@ -290,7 +288,7 @@ void Decoder::decode_per_char()
         case StateObject:
         switch (c)
         {
-            case ' ': case '\t': case '\n':
+            case ' ': case '\t': case '\n': case '\r':
             break;
 
             case '{':
@@ -352,7 +350,7 @@ void Decoder::decode_per_char()
         case StateObjectKey:
         switch (c)
         {
-            case ' ': case '\t': case '\n':
+            case ' ': case '\t': case '\n': case '\r':
             break;
 
             case ':':
@@ -397,8 +395,6 @@ void Decoder::decode_per_char()
         default:
         break;
     }
-
-    decode_per_char();
 }
 
 }
