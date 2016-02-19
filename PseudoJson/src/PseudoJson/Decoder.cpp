@@ -20,6 +20,8 @@ std::string Decoder::debug_string(State s)
         case StateUnknown: r = "Unknown"; break;
         case StateValue: r = "Value"; break;
         case StateInValue: r = "InValue"; break;
+        case StateNumber: r = "Number"; break;
+        case StateInNumber: r = "InNumber"; break;
         case StateObject: r = "Object"; break;
         case StateObjectKey: r = "Key"; break;
         case StateArray: r = "Array"; break;
@@ -93,6 +95,13 @@ void Decoder::decode_per_char()
             states_.push(StateValue);
             break;
 
+            case '0': case '1': case '2': case '3': case '4': case '5':
+            case '6': case '7': case '8': case '9': case '-':
+            ifs_.unget();
+            states_.pop();
+            states_.push(StateNumber);
+            break;
+
             case '[':
             ifs_.unget();
             states_.pop();
@@ -157,6 +166,51 @@ void Decoder::decode_per_char()
 
             default:
             token_ += c;
+            break;
+        }
+        break;
+
+        case StateNumber:
+        switch (c)
+        {
+            case '0': case '1': case '2': case '3': case '4': case '5':
+            case '6': case '7': case '8': case '9': case '-':
+            ifs_.unget();
+            token_ = "";
+            states_.pop();
+            states_.push(StateInNumber);
+            break;
+
+            default:
+            break;
+        }
+        break;
+
+        case StateInNumber:
+        switch (c)
+        {
+            case '0': case '1': case '2': case '3': case '4': case '5':
+            case '6': case '7': case '8': case '9': case '-': case '.':
+            token_ += c;
+            break;
+
+            default:
+            ifs_.unget();
+            states_.pop();
+            v = new Value(token_);
+            token_ = "";
+
+            if (states_.top() == StateArray)
+            {
+                paths_.top()->get_array()->push_back(v);
+            }
+
+            if (states_.top() == StateObject)
+            {
+                paths_.top()->get_object()->insert(keys_.top(), v);
+                keys_.pop();
+            }
+
             break;
         }
         break;

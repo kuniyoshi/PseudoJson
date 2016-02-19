@@ -14,6 +14,21 @@ Data::Data(const Data& base) : value_(base.value_) {}
 
 Data::~Data() {}
 
+std::string Data::get_at(const std::string& at) const
+{
+    return value_->get_at(at);
+}
+
+int Data::get_int_at(const std::string& at) const
+{
+    return value_->get_int_at(at);
+}
+
+double Data::get_double_at(const std::string& at) const
+{
+    return value_->get_double_at(at);
+}
+
 void Data::copy_to_vector_at(   std::vector< int >* v,
                                 const std::string& at) const
 {

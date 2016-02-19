@@ -18,6 +18,8 @@ private:
         StateUnknown,
         StateValue,
         StateInValue,
+        StateNumber,
+        StateInNumber,
         StateObject,
         StateObjectKey,
         StateArray,
