@@ -374,6 +374,11 @@ void Decoder::decode_per_char()
 
             break;
 
+            case '}':
+            ifs_.unget();
+            states_.pop();
+            break;
+
             default:
             token_ += c;
             break;
