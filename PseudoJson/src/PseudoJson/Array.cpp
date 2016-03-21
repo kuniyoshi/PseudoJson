@@ -19,6 +19,7 @@ Array::~Array()
         if (*it != 0)
         {
             delete *it;
+            *it = 0;
         }
     }
 }

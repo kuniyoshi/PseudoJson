@@ -19,6 +19,7 @@ Object::~Object()
         if (it->second != 0)
         {
             delete it->second;
+            it->second = 0;
         }
     }
 }

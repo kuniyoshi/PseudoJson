@@ -46,6 +46,7 @@ Decoder::~Decoder()
     if (value_)
     {
         delete value_;
+        value_ = 0;
     }
 }
 

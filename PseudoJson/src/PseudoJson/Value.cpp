@@ -52,6 +52,7 @@ Value::~Value()
         if (o_ != 0)
         {
             delete o_;
+            o_ = 0;
         }
 
         return;
@@ -64,6 +65,7 @@ Value::~Value()
         if (a_ != 0)
         {
             delete a_;
+            a_ = 0;
         }
 
         return;
