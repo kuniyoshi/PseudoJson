@@ -204,10 +204,6 @@ const Value* drill_down(const Value* v, std::vector< std::string > tokens)
         {
             r = r->get_array()->at(*it);
         }
-        else
-        {
-            assert(false);
-        }
     }
 
     return r;
