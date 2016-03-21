@@ -13,14 +13,14 @@ class Value;
 class Object
 {
 private:
-    std::map< std::string, Value* > map_;
+    std::map< const std::string, Value* > map_;
 
 public:
     Object();
     ~Object();
     void print(std::ostream* os) const;
     void insert(std::string key, Value* value);
-    const Value* at(std::string key) const;
+    const Value* at(const std::string& key) const;
     std::vector< std::string > keys() const;
 };
 

@@ -48,7 +48,7 @@ void Array::push_back(Value* v) { array_.push_back(v); }
 
 const Value* Array::at(int index) const { return array_.at(index); }
 
-const Value* Array::at(std::string index) const
+const Value* Array::at(const std::string& index) const
 {
     std::istringstream iss(index);
     int i = 0;

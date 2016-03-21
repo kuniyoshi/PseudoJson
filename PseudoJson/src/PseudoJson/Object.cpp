@@ -12,7 +12,7 @@ namespace PseudoJson
 Object::Object() : map_() {}
 Object::~Object()
 {
-    std::map< std::string, Value* >::iterator it = map_.begin();
+    std::map< const std::string, Value* >::iterator it = map_.begin();
 
     for (; it != map_.end(); ++it)
     {
@@ -25,7 +25,7 @@ Object::~Object()
 
 void Object::print(std::ostream* os) const
 {
-    std::map< std::string, Value* >::const_iterator it = map_.begin();
+    std::map< const std::string, Value* >::const_iterator it = map_.begin();
     int printed_count = 0;
 
     *os << "{";
@@ -48,16 +48,16 @@ void Object::print(std::ostream* os) const
 
 void Object::insert(std::string key, Value* value)
 {
-    map_.insert(std::pair< std::string, Value* >(key, value));
+    map_.insert(std::pair< const std::string, Value* >(key, value));
 }
 
-const Value* Object::at(std::string key) const { return map_.at(key); }
+const Value* Object::at(const std::string& key) const { return map_.at(key); }
 
 std::vector< std::string > Object::keys() const
 {
     std::vector< std::string > keys;
 
-    std::map< std::string, Value* >::const_iterator it = map_.begin();
+    std::map< const std::string, Value* >::const_iterator it = map_.begin();
 
     for (; it != map_.end(); ++it)
     {
