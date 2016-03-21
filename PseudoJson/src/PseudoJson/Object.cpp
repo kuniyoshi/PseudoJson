@@ -53,6 +53,12 @@ void Object::insert(std::string key, Value* value)
 
 const Value* Object::at(const std::string& key) const { return map_.at(key); }
 
+bool Object::does_exist(const std::string& key) const
+{
+    std::map< const std::string, Value* >::const_iterator it = map_.find(key);
+    return it != map_.end();
+}
+
 std::vector< std::string > Object::keys() const
 {
     std::vector< std::string > keys;

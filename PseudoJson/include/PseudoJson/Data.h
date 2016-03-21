@@ -33,6 +33,7 @@ public:
     template< class T >
     void copy_2expanded_to_vector_at(   std::vector< T >* v,
                                         const std::string& at) const;
+    bool does_exist(const std::string& what) const;
     size_t size_of(const std::string& at) const;
     std::vector< std::string > keys_of(const std::string& at) const;
 };

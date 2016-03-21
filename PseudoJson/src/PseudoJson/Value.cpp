@@ -145,6 +145,48 @@ void copy_tokens(std::vector< std::string >* v, std::string s)
     }
 }
 
+bool test_existence(const Value* v, std::vector< std::string > tokens)
+{
+    const Value* r = v;
+    std::vector< std::string >::const_iterator it = tokens.begin();
+
+    assert(tokens.size() > 1);
+
+    for (; it != tokens.end() - 1; ++it)
+    {
+        if (r->is_object())
+        {
+            r = r->get_object()->at(*it);
+        }
+        else if (r->is_array())
+        {
+            r = r->get_array()->at(*it);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    if (r->is_string())
+    {
+        return true;
+    }
+
+    if (r->is_object())
+    {
+        return r->get_object()->does_exist(*it);
+    }
+    else if (r->is_array())
+    {
+        return r->get_array()->does_exist(*it);
+    }
+
+    assert(false); // all patterns should be matched above
+
+    return false;
+}
+
 const Value* drill_down(const Value* v, std::vector< std::string > tokens)
 {
     const Value* r = v;
@@ -159,6 +201,10 @@ const Value* drill_down(const Value* v, std::vector< std::string > tokens)
         else if (r->is_array())
         {
             r = r->get_array()->at(*it);
+        }
+        else
+        {
+            assert(false);
         }
     }
 
@@ -224,6 +270,13 @@ std::vector< std::string > Value::keys_of(const std::string& at) const
     std::vector< std::string > tokens;
     copy_tokens(&tokens, at);
     return drill_down(this, tokens)->get_object()->keys();
+}
+
+bool Value::does_exist(const std::string& what) const
+{
+    std::vector< std::string > tokens;
+    copy_tokens(&tokens, what);
+    return test_existence(this, tokens);
 }
 
 }

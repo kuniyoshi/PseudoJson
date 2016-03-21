@@ -174,6 +174,11 @@ void Data::copy_2expanded_to_vector_at( std::vector< T >* v,
     }
 }
 
+bool Data::does_exist(const std::string& what) const
+{
+    return value_->does_exist(what);
+}
+
 size_t Data::size_of(const std::string& at) const
 {
     return value_->size_of(at);

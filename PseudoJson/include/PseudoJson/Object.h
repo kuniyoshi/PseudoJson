@@ -21,6 +21,7 @@ public:
     void print(std::ostream* os) const;
     void insert(std::string key, Value* value);
     const Value* at(const std::string& key) const;
+    bool does_exist(const std::string& key) const;
     std::vector< std::string > keys() const;
 };
 

@@ -87,6 +87,14 @@ void Array::copy_to_vector(std::vector< double >* v) const
     }
 }
 
+bool Array::does_exist(const std::string& index) const
+{
+    std::istringstream iss(index);
+    int i = 0;
+    iss >> i;
+    return !iss.fail();
+}
+
 size_t Array::size_of() const { return array_.size(); }
 
 }
